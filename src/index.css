@@ -1,0 +1,33 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-[#0a0a0a] text-white antialiased;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/[0.03] backdrop-blur-md border border-white/10 rounded-3xl;
+  }
+  
+  .apex-glow {
+    box-shadow: 0 0 60px rgba(255, 215, 0, 0.15);
+  }
+  
+  .patent-badge {
+    @apply inline-flex items-center px-4 py-2 bg-apex-gold/10 border border-apex-gold/30 rounded-full text-apex-gold text-xs font-bold tracking-wider uppercase;
+  }
+}
+
+@layer utilities {
+  .text-gradient-apex {
+    @apply bg-clip-text text-transparent bg-gradient-to-b from-apex-gold via-apex-amber to-apex-bronze;
+  }
+}

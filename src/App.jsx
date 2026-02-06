@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Routes, Route, Link, useLocation } from 'react-router-dom';
 import { ChevronRight, Shield, Beaker, Code, Globe, Cpu, Zap, ArrowUpRight, Menu, X, Award, FileText } from 'lucide-react';
 import ApexPage from './ApexPage';
+import PitchDeck from './PitchDeck';
 
 const App = () => {
   const [activeSection, setActiveSection] = useState('home');
@@ -270,6 +271,7 @@ const App = () => {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/apex" element={<ApexPage />} />
+          <Route path="/pitchdeck" element={<PitchDeck />} />
         </Routes>
       </main>
 

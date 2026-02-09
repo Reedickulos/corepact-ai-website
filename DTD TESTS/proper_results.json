@@ -1,0 +1,727 @@
+{
+  "individual_results": [
+    {
+      "scenario_id": "TEMP-001",
+      "scenario_type": "temp",
+      "dtd_metrics": {
+        "information_preservation": 0.013979936312109668,
+        "distinctiveness": 0.9997997879981995,
+        "coherence": 0.9998999189174865,
+        "overall_quality": 0.45553191839981977
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.2206567584496649,
+          "distinctiveness": 0.28890371322631836,
+          "coherence": 0.6837595796534405,
+          "overall_quality": 0.3367261342598459
+        },
+        "priority_based": {
+          "information_preservation": 0.20618859625272357,
+          "distinctiveness": 0.32245898246765137,
+          "coherence": 0.6982531730491528,
+          "overall_quality": 0.34032023778598297
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.2206567584496649,
+          "distinctiveness": 0.28890371322631836,
+          "coherence": 0.6837595796534405,
+          "overall_quality": 0.3367261342598459
+        }
+      },
+      "ground_truth": "False alarm - authorized maintenance activity during scheduled window"
+    },
+    {
+      "scenario_id": "TEMP-002",
+      "scenario_type": "temp",
+      "dtd_metrics": {
+        "information_preservation": 0.017322478994401886,
+        "distinctiveness": 0.9998024702072144,
+        "coherence": 0.9999012377184193,
+        "overall_quality": 0.45686973344436865
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.2867149470404989,
+          "distinctiveness": 0.2838069498538971,
+          "coherence": 0.6815403042158081,
+          "overall_quality": 0.36171911255902656
+        },
+        "priority_based": {
+          "information_preservation": 0.24101292212111824,
+          "distinctiveness": 0.31836608052253723,
+          "coherence": 0.6964949365382841,
+          "overall_quality": 0.3531085618883131
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.2867149470404989,
+          "distinctiveness": 0.2838069498538971,
+          "coherence": 0.6815403042158081,
+          "overall_quality": 0.36171911255902656
+        }
+      },
+      "ground_truth": "Terminated employee attempted login - account correctly disabled"
+    },
+    {
+      "scenario_id": "TEMP-003",
+      "scenario_type": "temp",
+      "dtd_metrics": {
+        "information_preservation": 0.0160731120072823,
+        "distinctiveness": 0.9998024702072144,
+        "coherence": 0.9999012391151272,
+        "overall_quality": 0.45636998706853327
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.2815448646558986,
+          "distinctiveness": 0.27817532420158386,
+          "coherence": 0.6790817559633253,
+          "overall_quality": 0.35806877128159464
+        },
+        "priority_based": {
+          "information_preservation": 0.24699410380194833,
+          "distinctiveness": 0.31163427233695984,
+          "coherence": 0.6935977435987386,
+          "overall_quality": 0.35362210545094486
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.2815448646558986,
+          "distinctiveness": 0.27817532420158386,
+          "coherence": 0.6790817559633253,
+          "overall_quality": 0.35806877128159464
+        }
+      },
+      "ground_truth": "Expected behavior - backup job correctly locking database"
+    },
+    {
+      "scenario_id": "TEMP-004",
+      "scenario_type": "temp",
+      "dtd_metrics": {
+        "information_preservation": 0.014926136902221339,
+        "distinctiveness": 0.9998016953468323,
+        "coherence": 0.9999008256897475,
+        "overall_quality": 0.4559109567698376
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.3538659639486735,
+          "distinctiveness": 0.2875290811061859,
+          "coherence": 0.6831615500452798,
+          "overall_quality": 0.3896242127589812
+        },
+        "priority_based": {
+          "information_preservation": 0.3040738969545926,
+          "distinctiveness": 0.3167390525341034,
+          "coherence": 0.6957953284277066,
+          "overall_quality": 0.3778790151902645
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.3538659639486735,
+          "distinctiveness": 0.2875290811061859,
+          "coherence": 0.6831615500452798,
+          "overall_quality": 0.3896242127589812
+        }
+      },
+      "ground_truth": "Authorized security audit with emergency access"
+    },
+    {
+      "scenario_id": "TEMP-005",
+      "scenario_type": "temp",
+      "dtd_metrics": {
+        "information_preservation": 0.018256428973403075,
+        "distinctiveness": 0.9998056292533875,
+        "coherence": 0.9999028463017784,
+        "overall_quality": 0.4572442698679029
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.3880274084844187,
+          "distinctiveness": 0.2859998047351837,
+          "coherence": 0.6824957916242191,
+          "overall_quality": 0.4028596715913108
+        },
+        "priority_based": {
+          "information_preservation": 0.347182635206494,
+          "distinctiveness": 0.3175111413002014,
+          "coherence": 0.6961273637969358,
+          "overall_quality": 0.39533793441670856
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.3880274084844187,
+          "distinctiveness": 0.2859998047351837,
+          "coherence": 0.6824957916242191,
+          "overall_quality": 0.4028596715913108
+        }
+      },
+      "ground_truth": "Expected failures during scheduled gateway maintenance"
+    },
+    {
+      "scenario_id": "TEMP-006",
+      "scenario_type": "temp",
+      "dtd_metrics": {
+        "information_preservation": 0.0141701413197068,
+        "distinctiveness": 0.9997993111610413,
+        "coherence": 0.9998996912547452,
+        "overall_quality": 0.4556078605784625
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.33299849540288456,
+          "distinctiveness": 0.2829941511154175,
+          "coherence": 0.6811858844777391,
+          "overall_quality": 0.38000428617178816
+        },
+        "priority_based": {
+          "information_preservation": 0.3250336713720415,
+          "distinctiveness": 0.314710795879364,
+          "coherence": 0.6949226487828456,
+          "overall_quality": 0.3856968825655749
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.33299849540288456,
+          "distinctiveness": 0.2829941511154175,
+          "coherence": 0.6811858844777391,
+          "overall_quality": 0.38000428617178816
+        }
+      },
+      "ground_truth": "Expected cache warming after deployment, will normalize"
+    },
+    {
+      "scenario_id": "TEMP-007",
+      "scenario_type": "temp",
+      "dtd_metrics": {
+        "information_preservation": 0.020504951640229547,
+        "distinctiveness": 0.9998019933700562,
+        "coherence": 0.9999010030715407,
+        "overall_quality": 0.45814258058306245
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.35714023321613814,
+          "distinctiveness": 0.27886059880256653,
+          "coherence": 0.6793813017811973,
+          "overall_quality": 0.3884995736411994
+        },
+        "priority_based": {
+          "information_preservation": 0.3404313728219855,
+          "distinctiveness": 0.31120526790618896,
+          "coherence": 0.693412872703232,
+          "overall_quality": 0.39087720112569213
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.35714023321613814,
+          "distinctiveness": 0.27886059880256653,
+          "coherence": 0.6793813017811973,
+          "overall_quality": 0.3884995736411994
+        }
+      },
+      "ground_truth": "Flash sale causing traffic spike, rate limiting working"
+    },
+    {
+      "scenario_id": "TEMP-008",
+      "scenario_type": "temp",
+      "dtd_metrics": {
+        "information_preservation": 0.013485734186401968,
+        "distinctiveness": 0.9998016953468323,
+        "coherence": 0.9999008246810148,
+        "overall_quality": 0.45533479538089006
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.3762772983921836,
+          "distinctiveness": 0.28498584032058716,
+          "coherence": 0.682054104548563,
+          "overall_quality": 0.3978750267695304
+        },
+        "priority_based": {
+          "information_preservation": 0.33944499221909397,
+          "distinctiveness": 0.3182063400745392,
+          "coherence": 0.6964262707142271,
+          "overall_quality": 0.39243682911308664
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.3762772983921836,
+          "distinctiveness": 0.28498584032058716,
+          "coherence": 0.682054104548563,
+          "overall_quality": 0.3978750267695304
+        }
+      },
+      "ground_truth": "Renewal already scheduled, no immediate action needed"
+    },
+    {
+      "scenario_id": "SEM-001",
+      "scenario_type": "sem",
+      "dtd_metrics": {
+        "information_preservation": 0.01615379212970085,
+        "distinctiveness": 0.9998032450675964,
+        "coherence": 0.9999016518424937,
+        "overall_quality": 0.4564024991647679
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.37119361771438186,
+          "distinctiveness": 0.28515422344207764,
+          "coherence": 0.6821274517070204,
+          "overall_quality": 0.3958888161141705
+        },
+        "priority_based": {
+          "information_preservation": 0.33829550854530027,
+          "distinctiveness": 0.3172377943992615,
+          "coherence": 0.6960098275222809,
+          "overall_quality": 0.3917068208346936
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.37119361771438186,
+          "distinctiveness": 0.28515422344207764,
+          "coherence": 0.6821274517070204,
+          "overall_quality": 0.3958888161141705
+        }
+      },
+      "ground_truth": "Network partition between app and database, not a security issue"
+    },
+    {
+      "scenario_id": "SEM-002",
+      "scenario_type": "sem",
+      "dtd_metrics": {
+        "information_preservation": 0.01842862657486816,
+        "distinctiveness": 0.9998043179512024,
+        "coherence": 0.9999021380526849,
+        "overall_quality": 0.4573127397384331
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.40357727093133144,
+          "distinctiveness": 0.28121575713157654,
+          "coherence": 0.680409955306291,
+          "overall_quality": 0.4077362585341564
+        },
+        "priority_based": {
+          "information_preservation": 0.36711797013656877,
+          "distinctiveness": 0.31337031722068787,
+          "coherence": 0.6943455491742152,
+          "overall_quality": 0.40215640038999523
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.40357727093133144,
+          "distinctiveness": 0.28121575713157654,
+          "coherence": 0.680409955306291,
+          "overall_quality": 0.4077362585341564
+        }
+      },
+      "ground_truth": "Auto-scaling handling the issue, no manual intervention needed"
+    },
+    {
+      "scenario_id": "SEM-003",
+      "scenario_type": "sem",
+      "dtd_metrics": {
+        "information_preservation": 0.025473112784301852,
+        "distinctiveness": 0.9998058080673218,
+        "coherence": 0.9999029097358053,
+        "overall_quality": 0.4601309892445606
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.43547485326534224,
+          "distinctiveness": 0.28184938430786133,
+          "coherence": 0.6806864804704335,
+          "overall_quality": 0.42067329309344614
+        },
+        "priority_based": {
+          "information_preservation": 0.4042664021343849,
+          "distinctiveness": 0.3126329183578491,
+          "coherence": 0.6940279562247271,
+          "overall_quality": 0.4168098854748495
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.43547485326534224,
+          "distinctiveness": 0.28184938430786133,
+          "coherence": 0.6806864804704335,
+          "overall_quality": 0.42067329309344614
+        }
+      },
+      "ground_truth": "Expected cache growth after new implementation, not a leak"
+    },
+    {
+      "scenario_id": "SEM-004",
+      "scenario_type": "sem",
+      "dtd_metrics": {
+        "information_preservation": 0.023405361606894853,
+        "distinctiveness": 0.9998061656951904,
+        "coherence": 0.9999030878942898,
+        "overall_quality": 0.45930399586532344
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.46489263173750195,
+          "distinctiveness": 0.2841012477874756,
+          "coherence": 0.6816686002099058,
+          "overall_quality": 0.4330728199260939
+        },
+        "priority_based": {
+          "information_preservation": 0.43157448563900774,
+          "distinctiveness": 0.3136112689971924,
+          "coherence": 0.6944492989613693,
+          "overall_quality": 0.4280062742935927
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.46489263173750195,
+          "distinctiveness": 0.2841012477874756,
+          "coherence": 0.6816686002099058,
+          "overall_quality": 0.4330728199260939
+        }
+      },
+      "ground_truth": "Health check endpoint misconfigured, service is healthy"
+    },
+    {
+      "scenario_id": "SEM-005",
+      "scenario_type": "sem",
+      "dtd_metrics": {
+        "information_preservation": 0.021127451372799734,
+        "distinctiveness": 0.9998034834861755,
+        "coherence": 0.9999017203588391,
+        "overall_quality": 0.4583920191796979
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.4119333863326363,
+          "distinctiveness": 0.28321027755737305,
+          "coherence": 0.6812801262832445,
+          "overall_quality": 0.4116389340516339
+        },
+        "priority_based": {
+          "information_preservation": 0.3784852685893224,
+          "distinctiveness": 0.31453418731689453,
+          "coherence": 0.6948466082459189,
+          "overall_quality": 0.4070282180070388
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.4119333863326363,
+          "distinctiveness": 0.28321027755737305,
+          "coherence": 0.6812801262832445,
+          "overall_quality": 0.4116389340516339
+        }
+      },
+      "ground_truth": "Clients using deprecated API, need migration notice"
+    },
+    {
+      "scenario_id": "SEM-006",
+      "scenario_type": "sem",
+      "dtd_metrics": {
+        "information_preservation": 0.017520117715569314,
+        "distinctiveness": 0.9998035430908203,
+        "coherence": 0.9999017692436668,
+        "overall_quality": 0.45694910932295085
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.42641561998460414,
+          "distinctiveness": 0.28087761998176575,
+          "coherence": 0.6802623312736372,
+          "overall_quality": 0.4167765903731977
+        },
+        "priority_based": {
+          "information_preservation": 0.3861160509636969,
+          "distinctiveness": 0.31133708357810974,
+          "coherence": 0.6934696798702407,
+          "overall_quality": 0.4091878868832674
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.42641561998460414,
+          "distinctiveness": 0.28087761998176575,
+          "coherence": 0.6802623312736372,
+          "overall_quality": 0.4167765903731977
+        }
+      },
+      "ground_truth": "Legitimate partner traffic, authentication valid"
+    },
+    {
+      "scenario_id": "PRIO-001",
+      "scenario_type": "prio",
+      "dtd_metrics": {
+        "information_preservation": 0.019257602966766853,
+        "distinctiveness": 0.999805212020874,
+        "coherence": 0.999902608045973,
+        "overall_quality": 0.4576446054036297
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.4333544862166222,
+          "distinctiveness": 0.2831553816795349,
+          "coherence": 0.6812561945455773,
+          "overall_quality": 0.4201919601022523
+        },
+        "priority_based": {
+          "information_preservation": 0.3941137208505208,
+          "distinctiveness": 0.31390810012817383,
+          "coherence": 0.6945770975633165,
+          "overall_quality": 0.41310483262842934
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.4333544862166222,
+          "distinctiveness": 0.2831553816795349,
+          "coherence": 0.6812561945455773,
+          "overall_quality": 0.4201919601022523
+        }
+      },
+      "ground_truth": "System outage causing security alerts (false positive), fix outage first"
+    },
+    {
+      "scenario_id": "PRIO-002",
+      "scenario_type": "prio",
+      "dtd_metrics": {
+        "information_preservation": 0.018240231785424624,
+        "distinctiveness": 0.9998038411140442,
+        "coherence": 0.9999018905246163,
+        "overall_quality": 0.4572372360386614
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.463812314188903,
+          "distinctiveness": 0.2829712927341461,
+          "coherence": 0.6811759259418836,
+          "overall_quality": 0.4323233973682482
+        },
+        "priority_based": {
+          "information_preservation": 0.4280661176319555,
+          "distinctiveness": 0.3137325644493103,
+          "coherence": 0.6945015033712817,
+          "overall_quality": 0.42663678273156325
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.463812314188903,
+          "distinctiveness": 0.2829712927341461,
+          "coherence": 0.6811759259418836,
+          "overall_quality": 0.4323233973682482
+        }
+      },
+      "ground_truth": "Disk failure imminent, minor issues are noise"
+    },
+    {
+      "scenario_id": "PRIO-003",
+      "scenario_type": "prio",
+      "dtd_metrics": {
+        "information_preservation": 0.019789301421102582,
+        "distinctiveness": 0.9998058080673218,
+        "coherence": 0.9999029012779349,
+        "overall_quality": 0.4578574621619197
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.4655791691692689,
+          "distinctiveness": 0.281274676322937,
+          "coherence": 0.6804356742868818,
+          "overall_quality": 0.4325535714022126
+        },
+        "priority_based": {
+          "information_preservation": 0.42852529282065943,
+          "distinctiveness": 0.3136084973812103,
+          "coherence": 0.694448094970263,
+          "overall_quality": 0.4267858202265242
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.4655791691692689,
+          "distinctiveness": 0.281274676322937,
+          "coherence": 0.6804356742868818,
+          "overall_quality": 0.4325535714022126
+        }
+      },
+      "ground_truth": "Customer-impacting issue takes priority over routine scan"
+    },
+    {
+      "scenario_id": "PRIO-004",
+      "scenario_type": "prio",
+      "dtd_metrics": {
+        "information_preservation": 0.02156237141318898,
+        "distinctiveness": 0.9998048543930054,
+        "coherence": 0.9999024272494269,
+        "overall_quality": 0.4585664048990544
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.46147239924145866,
+          "distinctiveness": 0.2831341028213501,
+          "coherence": 0.6812469292580671,
+          "overall_quality": 0.4314331538972061
+        },
+        "priority_based": {
+          "information_preservation": 0.4293702527591471,
+          "distinctiveness": 0.3129478096961975,
+          "coherence": 0.6941635809135673,
+          "overall_quality": 0.4269393468321587
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.46147239924145866,
+          "distinctiveness": 0.2831341028213501,
+          "coherence": 0.6812469292580671,
+          "overall_quality": 0.4314331538972061
+        }
+      },
+      "ground_truth": "Staging environment restore using prod backup, authorized"
+    },
+    {
+      "scenario_id": "CTX-001",
+      "scenario_type": "ctx",
+      "dtd_metrics": {
+        "information_preservation": 0.019861877250419317,
+        "distinctiveness": 0.9998040795326233,
+        "coherence": 0.9999020108744552,
+        "overall_quality": 0.45788596609239773
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.4547237985971304,
+          "distinctiveness": 0.2875731587409973,
+          "coherence": 0.683180714912263,
+          "overall_quality": 0.42997970772368066
+        },
+        "priority_based": {
+          "information_preservation": 0.418790229577315,
+          "distinctiveness": 0.3165571093559265,
+          "coherence": 0.6957170748906157,
+          "overall_quality": 0.4237147807014997
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.4547237985971304,
+          "distinctiveness": 0.2875731587409973,
+          "coherence": 0.683180714912263,
+          "overall_quality": 0.42997970772368066
+        }
+      },
+      "ground_truth": "CEO accessing from different timezone during business hours there"
+    },
+    {
+      "scenario_id": "CTX-002",
+      "scenario_type": "ctx",
+      "dtd_metrics": {
+        "information_preservation": 0.019101302408049463,
+        "distinctiveness": 0.9998042583465576,
+        "coherence": 0.9999021339401487,
+        "overall_quality": 0.457581799897248
+      },
+      "baseline_metrics": {
+        "simple_average": {
+          "information_preservation": 0.45721912000560205,
+          "distinctiveness": 0.2824603319168091,
+          "coherence": 0.680953031157061,
+          "overall_quality": 0.4295426071368805
+        },
+        "priority_based": {
+          "information_preservation": 0.4140180903973778,
+          "distinctiveness": 0.3143479526042938,
+          "coherence": 0.6947664454686007,
+          "overall_quality": 0.4211893626901754
+        },
+        "confidence_weighted": {
+          "information_preservation": 0.45721912000560205,
+          "distinctiveness": 0.2824603319168091,
+          "coherence": 0.680953031157061,
+          "overall_quality": 0.4295426071368805
+        }
+      },
+      "ground_truth": "Quarter-end sales reporting, authorized activity"
+    }
+  ],
+  "aggregate": {
+    "dtd": {
+      "information_preservation": {
+        "mean": 0.018432003488242157,
+        "std": 0.0030685135022102132
+      },
+      "distinctiveness": {
+        "mean": 0.9998034834861755,
+        "std": 1.8847701205803908e-06
+      },
+      "coherence": {
+        "mean": 0.9999017417895096,
+        "std": 9.390342730682363e-07
+      },
+      "overall_quality": {
+        "mean": 0.45731384645507617,
+        "std": 0.0012278434393083904
+      }
+    },
+    "baselines": {
+      "simple_average": {
+        "information_preservation": {
+          "mean": 0.39234373184875715,
+          "std": 0.06844794525530114
+        },
+        "distinctiveness": {
+          "mean": 0.28341164588928225,
+          "std": 0.0026936720619404257
+        },
+        "coherence": {
+          "mean": 0.681367184383092,
+          "std": 0.0011744560289296492
+        },
+        "overall_quality": {
+          "mean": 0.4038593949378228,
+          "std": 0.027265809247281315
+        }
+      },
+      "priority_based": {
+        "information_preservation": {
+          "mean": 0.35845507903976276,
+          "std": 0.06563742354034502
+        },
+        "distinctiveness": {
+          "mean": 0.31493287682533266,
+          "std": 0.002765182153815716
+        },
+        "coherence": {
+          "mean": 0.695017652739376,
+          "std": 0.0011895935046959264
+        },
+        "overall_quality": {
+          "mean": 0.39912725896151774,
+          "std": 0.02584786502149684
+        }
+      },
+      "confidence_weighted": {
+        "information_preservation": {
+          "mean": 0.39234373184875715,
+          "std": 0.06844794525530114
+        },
+        "distinctiveness": {
+          "mean": 0.28341164588928225,
+          "std": 0.0026936720619404257
+        },
+        "coherence": {
+          "mean": 0.681367184383092,
+          "std": 0.0011744560289296492
+        },
+        "overall_quality": {
+          "mean": 0.4038593949378228,
+          "std": 0.027265809247281315
+        }
+      }
+    },
+    "statistical_tests": {
+      "simple_average": {
+        "t_statistic": 8.796444719839352,
+        "p_value": 3.980832774946588e-08,
+        "cohens_d": 2.7697500176460275,
+        "significant": true,
+        "dtd_better": true,
+        "effect_size": "large"
+      },
+      "priority_based": {
+        "t_statistic": 10.123038143710177,
+        "p_value": 4.320434937545011e-09,
+        "cohens_d": 3.1799754422502917,
+        "significant": true,
+        "dtd_better": true,
+        "effect_size": "large"
+      },
+      "confidence_weighted": {
+        "t_statistic": 8.796444719839352,
+        "p_value": 3.980832774946588e-08,
+        "cohens_d": 2.7697500176460275,
+        "significant": true,
+        "dtd_better": true,
+        "effect_size": "large"
+      }
+    }
+  },
+  "num_scenarios": 20
+}

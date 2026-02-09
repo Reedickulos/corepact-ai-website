@@ -1,0 +1,253 @@
+{
+  "individual_results": [
+    {
+      "scenario_id": "TEMP-001",
+      "dtd_score": 0.9998351335525513,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "False alarm - authorized maintenance activity during scheduled window"
+    },
+    {
+      "scenario_id": "TEMP-002",
+      "dtd_score": 0.9998361468315125,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Terminated employee attempted login - account correctly disabled"
+    },
+    {
+      "scenario_id": "TEMP-003",
+      "dtd_score": 0.999833881855011,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Expected behavior - backup job correctly locking database"
+    },
+    {
+      "scenario_id": "TEMP-004",
+      "dtd_score": 0.999832808971405,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Authorized security audit with emergency access"
+    },
+    {
+      "scenario_id": "TEMP-005",
+      "dtd_score": 0.9998396039009094,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Expected failures during scheduled gateway maintenance"
+    },
+    {
+      "scenario_id": "TEMP-006",
+      "dtd_score": 0.9998378157615662,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Expected cache warming after deployment, will normalize"
+    },
+    {
+      "scenario_id": "TEMP-007",
+      "dtd_score": 0.9998363852500916,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Flash sale causing traffic spike, rate limiting working"
+    },
+    {
+      "scenario_id": "TEMP-008",
+      "dtd_score": 0.9998360872268677,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Renewal already scheduled, no immediate action needed"
+    },
+    {
+      "scenario_id": "SEM-001",
+      "dtd_score": 0.9998343586921692,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Network partition between app and database, not a security issue"
+    },
+    {
+      "scenario_id": "SEM-002",
+      "dtd_score": 0.9998347759246826,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Auto-scaling handling the issue, no manual intervention needed"
+    },
+    {
+      "scenario_id": "SEM-003",
+      "dtd_score": 0.9998378157615662,
+      "baseline_scores": {
+        "simple_average": 1.000030755996704,
+        "priority_based": 0.062501922249794,
+        "confidence_weighted": 1.000030755996704
+      },
+      "ground_truth": "Expected cache growth after new implementation, not a leak"
+    },
+    {
+      "scenario_id": "SEM-004",
+      "dtd_score": 0.9998341798782349,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Health check endpoint misconfigured, service is healthy"
+    },
+    {
+      "scenario_id": "SEM-005",
+      "dtd_score": 0.9998359084129333,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Clients using deprecated API, need migration notice"
+    },
+    {
+      "scenario_id": "SEM-006",
+      "dtd_score": 0.9998328685760498,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Legitimate partner traffic, authentication valid"
+    },
+    {
+      "scenario_id": "PRIO-001",
+      "dtd_score": 0.999836802482605,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "System outage causing security alerts (false positive), fix outage first"
+    },
+    {
+      "scenario_id": "PRIO-002",
+      "dtd_score": 0.9998385310173035,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Disk failure imminent, minor issues are noise"
+    },
+    {
+      "scenario_id": "PRIO-003",
+      "dtd_score": 0.9998371005058289,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Customer-impacting issue takes priority over routine scan"
+    },
+    {
+      "scenario_id": "PRIO-004",
+      "dtd_score": 0.9998365044593811,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "Staging environment restore using prod backup, authorized"
+    },
+    {
+      "scenario_id": "CTX-001",
+      "dtd_score": 0.9998384118080139,
+      "baseline_scores": {
+        "simple_average": 1.0000308752059937,
+        "priority_based": 0.0625019297003746,
+        "confidence_weighted": 1.0000308752059937
+      },
+      "ground_truth": "CEO accessing from different timezone during business hours there"
+    },
+    {
+      "scenario_id": "CTX-002",
+      "dtd_score": 0.9998371601104736,
+      "baseline_scores": {
+        "simple_average": 1.000030755996704,
+        "priority_based": 0.062501922249794,
+        "confidence_weighted": 1.000030755996704
+      },
+      "ground_truth": "Quarter-end sales reporting, authorized activity"
+    }
+  ],
+  "aggregate": {
+    "dtd": {
+      "mean": 0.9998361140489578,
+      "std": 1.842783896200871e-06,
+      "min": 0.999832808971405,
+      "max": 0.9998396039009094
+    },
+    "baselines": {
+      "simple_average": {
+        "mean": 1.0000308632850647,
+        "std": 3.5762786865234374e-08,
+        "min": 1.000030755996704,
+        "max": 1.0000308752059937
+      },
+      "priority_based": {
+        "mean": 0.06250192895531655,
+        "std": 2.2351741790771484e-09,
+        "min": 0.062501922249794,
+        "max": 0.0625019297003746
+      },
+      "confidence_weighted": {
+        "mean": 1.0000308632850647,
+        "std": 3.5762786865234374e-08,
+        "min": 1.000030755996704,
+        "max": 1.0000308752059937
+      }
+    },
+    "statistical_tests": {
+      "simple_average": {
+        "t_statistic": -458.36624363996526,
+        "p_value": 6.944092029771459e-40,
+        "significant": true,
+        "dtd_better": false
+      },
+      "priority_based": {
+        "t_statistic": 2216489.3933847067,
+        "p_value": 6.876432873949418e-110,
+        "significant": true,
+        "dtd_better": true
+      },
+      "confidence_weighted": {
+        "t_statistic": -458.36624363996526,
+        "p_value": 6.944092029771459e-40,
+        "significant": true,
+        "dtd_better": false
+      }
+    }
+  },
+  "num_scenarios": 20
+}

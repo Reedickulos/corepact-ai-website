@@ -1,0 +1,43 @@
+[
+  {
+    "model": "qwen/qwen3-coder:free",
+    "status": "error",
+    "http_code": 429
+  },
+  {
+    "model": "deepseek/deepseek-r1-0528:free",
+    "status": "error",
+    "error": {
+      "message": "Network connection lost.",
+      "code": 502,
+      "metadata": {
+        "provider_name": "ModelRun"
+      }
+    }
+  },
+  {
+    "model": "tngtech/deepseek-r1t-chimera:free",
+    "status": "success",
+    "response": "Okay, let's break this down. There are four different pieces of information here, and I need to figure out if the unauthorized access is a real threat or just part of expected activities. \n\nFirst, the security alert says there's unauthorized access at 02:15 UTC with a high confidence level of 0.92. That sounds serious. But then the metrics show normal CPU and memory usage, no anomalies. So the system isn't under stress, which you might expect if there was a breach or attack. \n\nThen the logs ment",
+    "tokens": {
+      "prompt_tokens": 107,
+      "completion_tokens": 150,
+      "total_tokens": 257,
+      "cost": 0,
+      "is_byok": false,
+      "prompt_tokens_details": {
+        "cached_tokens": 2,
+        "audio_tokens": 0
+      },
+      "cost_details": {
+        "upstream_inference_cost": 0,
+        "upstream_inference_prompt_cost": 0,
+        "upstream_inference_completions_cost": 0
+      },
+      "completion_tokens_details": {
+        "reasoning_tokens": 0,
+        "audio_tokens": 0
+      }
+    }
+  }
+]

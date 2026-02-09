@@ -1,14 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COREPACT AI Technologies LLC</title>
-    <meta name="description" content="COREPACT AI Technologies LLC - Orchestrating the Future of Intelligence Through APEX, CORE-LAB, CARO, DEV-CORE, and ROC" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COREPACT AI Technologies LLC | Intelligence Orchestration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        
+        @keyframes pulse-core {
+            0% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(59, 130, 246, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(59, 130, 246, 0); }
+        }
+        .animate-pulse-core { animation: pulse-core 2s infinite; }
+
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) { .chart-container { height: 350px; } }
+
+        .stream-line {
+            height: 2px;
+            background: linear-gradient(90deg, transparent, #3b82f6, transparent);
+            background-size: 200% 100%;
+            animation: move-gradient 2s linear infinite;
+        }
+        @keyframes move-gradient {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(226, 232, 240, 0.5);
+        }
+    </style>
+    <!-- Chosen Palette: Corporate Slate, Azure Blue, and Clean White -->
+    <!-- Application Structure Plan: 
+         1. Index/Portal: High-level organization overview (APEX, CORE-LAB, etc.)
+         2. DTD Deep Dive: Technical breakdown and benchmarks for Dimensional Token Division.
+         3. Navigation: Switch between "The Ecosystem" and "The Technology".
+         Rationale: Provides a professional corporate front-end for COREPACT AI while housing the specific DTD technical assets as a core competency.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-slate-50 text-slate-800 font-sans leading-relaxed overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="bg-white border-b border-slate-200 sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-xl font-bold tracking-tighter text-slate-900">COREPACT <span class="text-blue-600">AI</span></span>
+                </div>
+                <div class="hidden sm:flex space-x-6 items-center">
+                    <button onclick="showPage('index')" class="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">Ecosystem</button>
+                    <button onclick="showPage('dtd')" class="text-slate-600 hover:text-blue-600 px-3 py-2 text-sm font-medium transition-colors">DTD Technology</button>
+                    <a href="https://corepactai.com/dtdinfo" target="_blank" class="bg-slate-900 text-white px-4 py-2 rounded text-sm font-semibold hover:bg-slate-800 transition-colors">Internal Repo</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page: Corporate Index -->
+    <main id="page-index" class="block">
+        <header class="py-16 lg:py-24 bg-white border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h1 class="text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Orchestrating the Future of Intelligence</h1>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto mb-10">COREPACT AI Technologies LLC is an integrated platform for advanced R&D, infrastructure optimization, and mission-critical execution.</p>
+                <div class="flex justify-center gap-4">
+                    <button onclick="showPage('dtd')" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition-all">Explore DTD Tech</button>
+                </div>
+            </div>
+        </header>
+
+        <section class="py-20">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- APEX -->
+                    <div class="glass-panel p-8 rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4 border-l-blue-600">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">APEX</h3>
+                        <p class="text-sm text-slate-500 mb-4 uppercase font-bold tracking-widest">Strategy & Synthesis</p>
+                        <p class="text-slate-600">The central orchestration layer for high-level decision making and strategic alignment across all AI sub-systems.</p>
+                    </div>
+                    <!-- CORE-LAB -->
+                    <div class="glass-panel p-8 rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4 border-l-purple-600">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">CORE-LAB</h3>
+                        <p class="text-sm text-slate-500 mb-4 uppercase font-bold tracking-widest">Research & Development</p>
+                        <p class="text-slate-600">Our primary R&D engine, focused on pushing the boundaries of transformer architectures and multi-stream fusion.</p>
+                    </div>
+                    <!-- CARO -->
+                    <div class="glass-panel p-8 rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4 border-l-emerald-600">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">CARO</h3>
+                        <p class="text-sm text-slate-500 mb-4 uppercase font-bold tracking-widest">Analysis & Response</p>
+                        <p class="text-slate-600">Real-time situational awareness and automated countermeasure deployment for mission-critical operations.</p>
+                    </div>
+                    <!-- DEV-CORE -->
+                    <div class="glass-panel p-8 rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4 border-l-orange-600">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">DEV-CORE</h3>
+                        <p class="text-sm text-slate-500 mb-4 uppercase font-bold tracking-widest">Build & Deploy</p>
+                        <p class="text-slate-600">The engineering backbone responsible for scaling DTD-based models to production-grade infrastructure.</p>
+                    </div>
+                    <!-- ROC -->
+                    <div class="glass-panel p-8 rounded-2xl shadow-sm hover:shadow-md transition-all border-l-4 border-l-slate-600">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">ROC</h3>
+                        <p class="text-sm text-slate-500 mb-4 uppercase font-bold tracking-widest">Operations Center</p>
+                        <p class="text-slate-600">Regional Operations Command providing 24/7 monitoring, security, and global load-balancing of AI assets.</p>
+                    </div>
+                    <!-- DTD Redirect -->
+                    <div class="bg-blue-600 p-8 rounded-2xl shadow-lg flex flex-col justify-between text-white">
+                        <div>
+                            <h3 class="text-2xl font-bold mb-2">DTD INFO</h3>
+                            <p class="text-blue-100 mb-4">Dimensional Token Division: Patent-pending multi-stream transformer technology.</p>
+                        </div>
+                        <button onclick="showPage('dtd')" class="bg-white text-blue-600 font-bold py-2 rounded-lg hover:bg-blue-50 transition-colors">Deep Dive Into DTD</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Page: DTD Technology Briefing -->
+    <main id="page-dtd" class="hidden">
+        <section id="overview" class="bg-white py-12 border-b border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div>
+                    <div class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-700 text-xs font-semibold uppercase tracking-wide mb-4">
+                        Patent Pending: 63/976,362
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 tracking-tight mb-6">Dimensional Token Division</h1>
+                    <p class="text-lg text-slate-600 mb-8 max-w-2xl">Native multi-stream processing in Transformer Language Models. <span class="font-semibold text-slate-900">DTD</span> eliminates orchestration middleware, enabling simultaneous processing of heterogeneous data streams with <span class="text-blue-600 font-bold">zero parameter overhead</span>.</p>
+                    <div class="flex flex-wrap gap-4">
+                        <button onclick="scrollToSection('performance')" class="bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors shadow-lg shadow-blue-200">View Benchmarks</button>
+                        <button onclick="showPage('index')" class="bg-white text-slate-700 border border-slate-300 px-6 py-3 rounded-lg font-semibold hover:bg-slate-50 transition-colors">Back to Ecosystem</button>
+                    </div>
+                </div>
+                
+                <div class="relative bg-slate-900 rounded-xl shadow-2xl overflow-hidden border border-slate-700">
+                    <div class="bg-slate-800 px-4 py-2 flex items-center justify-between border-b border-slate-700">
+                        <span class="text-xs font-mono text-slate-400">root@dtd-core:~</span>
+                        <div class="flex space-x-2"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div></div>
+                    </div>
+                    <div class="p-4 h-64 overflow-y-auto font-mono text-xs text-green-400 scrollbar-hide" id="terminal-output"></div>
+                    <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-slate-900 to-transparent h-12 pointer-events-none"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Performance / Architecture / Simulation Sections from the original SPA -->
+        <section id="performance" class="py-16 bg-slate-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-16">
+                    <h2 class="text-3xl font-bold text-slate-900 mb-4">Performance Benchmarks</h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100"><div class="text-sm font-semibold text-slate-500 mb-2">LATENCY</div><div class="text-4xl font-bold text-blue-600">166ms</div><p class="text-xs text-slate-400 mt-2">▼ 35% vs Sequential</p></div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100"><div class="text-sm font-semibold text-slate-500 mb-2">COST REDUCTION</div><div class="text-4xl font-bold text-slate-900">4x</div><p class="text-xs text-slate-400 mt-2">Eliminates 3 redundant models</p></div>
+                        <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100"><div class="text-sm font-semibold text-slate-500 mb-2">OVERHEAD</div><div class="text-4xl font-bold text-slate-900">0%</div><p class="text-xs text-slate-400 mt-2">Native architectural integration</p></div>
+                    </div>
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100">
+                        <div class="chart-container"><canvas id="latencyChart"></canvas></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="architecture" class="py-16 bg-white border-t border-slate-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div>
+                    <h2 class="text-3xl font-bold text-slate-900 mb-6">Unified Layer Stack</h2>
+                    <p class="text-slate-600 mb-6">DTD introduces <strong>Dimensional Partitioning</strong>, splitting the embedding space into independent sub-spaces for native parallelization.</p>
+                    <ul class="space-y-4 text-left">
+                        <li class="flex items-start"><span class="bg-blue-100 text-blue-600 rounded p-1 mr-3 text-xs">01</span><span><strong>Split:</strong> Partitioning 768-dim into 4x192 streams.</span></li>
+                        <li class="flex items-start"><span class="bg-blue-100 text-blue-600 rounded p-1 mr-3 text-xs">02</span><span><strong>Process:</strong> Parallel Attention layers handle independent stream logic.</span></li>
+                        <li class="flex items-start"><span class="bg-blue-100 text-blue-600 rounded p-1 mr-3 text-xs">03</span><span><strong>Fuse:</strong> Learned Fusion Layer resolves cross-stream contradictions.</span></li>
+                    </ul>
+                </div>
+                <div class="bg-slate-50 rounded-xl p-8 border border-slate-200 flex flex-col justify-center items-center">
+                    <div id="arch-viz" class="w-full space-y-6">
+                        <div class="flex justify-between w-full px-4"><div class="w-16 h-8 bg-blue-500 rounded text-[10px] text-white flex items-center justify-center">Stream 1</div><div class="w-16 h-8 bg-blue-500 rounded text-[10px] text-white flex items-center justify-center">Stream 2</div><div class="w-16 h-8 bg-blue-500 rounded text-[10px] text-white flex items-center justify-center">Stream 3</div><div class="w-16 h-8 bg-blue-500 rounded text-[10px] text-white flex items-center justify-center">Stream 4</div></div>
+                        <div class="flex justify-between w-full px-4"><div class="w-16 stream-line"></div><div class="w-16 stream-line"></div><div class="w-16 stream-line"></div><div class="w-16 stream-line"></div></div>
+                        <div class="w-full h-12 bg-red-500 rounded-lg text-white font-bold flex items-center justify-center animate-pulse-core">LEARNED FUSION LAYER</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="simulation" class="py-16 bg-slate-900 text-white">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-3xl font-bold mb-8">Conflict Resolution Logic</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                    <div class="bg-slate-800 p-8 rounded-xl text-left border border-slate-700">
+                        <h3 class="text-xl font-bold mb-4">Neural Fusion Simulation</h3>
+                        <p class="text-slate-400 text-sm mb-6">Select a scenario to see how the DTD model resolves contradictory information across streams (Claim 4).</p>
+                        <div class="space-y-3">
+                            <button onclick="runSim('agreement')" class="w-full py-3 px-4 rounded bg-slate-700 hover:bg-blue-600 transition-colors text-left">Agreement: Multi-source confirmation</button>
+                            <button onclick="runSim('conflict')" class="w-full py-3 px-4 rounded bg-slate-700 hover:bg-blue-600 transition-colors text-left">Conflict: Contradictory signals</button>
+                        </div>
+                    </div>
+                    <div id="sim-display" class="h-64 bg-black rounded-xl border border-slate-700 flex flex-col items-center justify-center p-6 text-center">
+                        <div id="sim-status" class="text-blue-400 font-mono mb-4 text-lg">System Idle</div>
+                        <div id="sim-log" class="text-xs font-mono text-slate-500 h-32 overflow-hidden w-full text-left"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center text-center">
+            <div class="mb-6 md:mb-0">
+                <span class="text-xl font-bold text-slate-900">COREPACT AI Technologies LLC</span>
+                <p class="text-sm text-slate-500 mt-2">Orchestrating the Future through APEX, CORE-LAB, CARO, DEV-CORE, and ROC.</p>
+            </div>
+            <div class="flex space-x-6">
+                <a href="https://corepactai.com/dtdinfo" target="_blank" class="text-blue-600 font-semibold hover:underline">corepactai.com/dtdinfo</a>
+                <span class="text-slate-300">|</span>
+                <span class="text-slate-500">© 2026 J. Dawson</span>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function showPage(page) {
+            document.getElementById('page-index').style.display = page === 'index' ? 'block' : 'none';
+            document.getElementById('page-dtd').style.display = page === 'dtd' ? 'block' : 'none';
+            window.scrollTo(0, 0);
+            if(page === 'dtd') initCharts();
+        }
+
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({ behavior: 'smooth' });
+        }
+
+        const terminalOutput = document.getElementById('terminal-output');
+        const logs = [
+            "[INFO] APEX Core Handshake...",
+            "[INFO] ROC Global Node Check: Green.",
+            "[INFO] CORE-LAB: Initializing DTD Layer Stack...",
+            "[INFO] Dimensional Partitioning: 4x192 activated.",
+            "[STREAM-1] Ingress: Network_Telemetry.log",
+            "[STREAM-2] Ingress: Access_Control.db",
+            "[FUSION] Learned Conflict Resolution engaged.",
+            "[SUCCESS] Unified Inference complete: 164.2ms",
+            "-------------------------------------------"
+        ];
+        let logIndex = 0;
+        setInterval(() => {
+            if(!terminalOutput) return;
+            const p = document.createElement('p');
+            p.textContent = `> ${logs[logIndex % logs.length]}`;
+            p.className = 'mb-1';
+            terminalOutput.appendChild(p);
+            terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            logIndex++;
+        }, 2000);
+
+        let latencyChart = null;
+        function initCharts() {
+            if (latencyChart) latencyChart.destroy();
+            const canvas = document.getElementById('latencyChart');
+            if(!canvas) return;
+            const ctx = canvas.getContext('2d');
+            latencyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: ['Sequential', 'Middleware', 'DTD System'],
+                    datasets: [{
+                        label: 'Latency (ms)',
+                        data: [255, 300, 166],
+                        backgroundColor: ['#cbd5e1', '#94a3b8', '#2563eb'],
+                        borderRadius: 8
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: { y: { beginAtZero: true, title: { display: true, text: 'Milliseconds' } } }
+                }
+            });
+        }
+
+        function runSim(type) {
+            const status = document.getElementById('sim-status');
+            const log = document.getElementById('sim-log');
+            log.innerHTML = '';
+            status.textContent = "Processing Streams...";
+            
+            setTimeout(() => {
+                if(type === 'agreement') {
+                    status.textContent = "VERIFIED: AGREE";
+                    status.className = "text-green-400 font-mono mb-4 text-lg";
+                    log.innerHTML = "S1: User detected at Terminal A<br>S2: Terminal A Bio-metrics match User<br>FUSION: High-confidence identity confirmed.";
+                } else {
+                    status.textContent = "ALERT: CONTRADICTION";
+                    status.className = "text-red-400 font-mono mb-4 text-lg";
+                    log.innerHTML = "S1: Terminal login successful<br>S2: User location GPS reports 50mi away<br>FUSION: Anomaly detected. Resolving to security lock.";
+                }
+            }, 800);
+        }
+    </script>
+</body>
 </html>

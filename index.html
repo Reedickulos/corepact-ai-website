@@ -1,14 +1,407 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>COREPACT AI Technologies LLC</title>
-    <meta name="description" content="COREPACT AI Technologies LLC - Orchestrating the Future of Intelligence Through APEX, CORE-LAB, CARO, DEV-CORE, and ROC" />
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>COREPACT AI Technologies LLC</title>
+  <meta name="description" content="COREPACT AI Technologies LLC - Orchestrating the Future of Intelligence">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      color: #ffffff;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 2rem;
+    }
+
+    /* Header */
+    header {
+      text-align: center;
+      padding: 4rem 2rem;
+      position: relative;
+    }
+
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 900;
+      letter-spacing: 0.2em;
+      background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 1rem;
+      animation: fadeInDown 1s ease-out;
+    }
+
+    .tagline {
+      font-size: 1.2rem;
+      color: #00d4ff;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      font-weight: 300;
+      margin-bottom: 0.5rem;
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .subtitle {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      animation: fadeInUp 1s ease-out 0.6s both;
+    }
+
+    /* Main Content */
+    .hero {
+      text-align: center;
+      padding: 6rem 2rem;
+      position: relative;
+    }
+
+    .hero h1 {
+      font-size: 4rem;
+      font-weight: 900;
+      margin-bottom: 2rem;
+      line-height: 1.2;
+      background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: fadeInUp 1s ease-out 0.9s both;
+    }
+
+    .hero p {
+      font-size: 1.3rem;
+      color: rgba(255, 255, 255, 0.8);
+      max-width: 800px;
+      margin: 0 auto 3rem;
+      line-height: 1.8;
+      animation: fadeInUp 1s ease-out 1.2s both;
+    }
+
+    /* Cards Section */
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      padding: 4rem 0;
+      animation: fadeInUp 1s ease-out 1.5s both;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 1rem;
+      padding: 2.5rem;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      border-color: rgba(0, 212, 255, 0.6);
+      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: #00d4ff;
+      letter-spacing: 0.1em;
+    }
+
+    .card p {
+      color: rgba(255, 255, 255, 0.7);
+      line-height: 1.6;
+      font-size: 1rem;
+    }
+
+    /* DTD Section */
+    .dtd-section {
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 255, 0.05) 100%);
+      border-radius: 2rem;
+      padding: 4rem 2rem;
+      margin: 4rem 0;
+      text-align: center;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      animation: fadeInUp 1s ease-out 1.8s both;
+    }
+
+    .dtd-section h2 {
+      font-size: 3rem;
+      font-weight: 900;
+      margin-bottom: 1rem;
+      letter-spacing: 0.2em;
+      color: #00d4ff;
+    }
+
+    .dtd-section .subtitle-dtd {
+      font-size: 1.2rem;
+      color: rgba(255, 255, 255, 0.8);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .dtd-metrics {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .metric {
+      padding: 2rem;
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 1rem;
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      transition: all 0.3s ease;
+    }
+
+    .metric:hover {
+      border-color: rgba(0, 212, 255, 0.6);
+      transform: scale(1.05);
+    }
+
+    .metric-value {
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #00d4ff;
+      margin-bottom: 0.5rem;
+    }
+
+    .metric-label {
+      font-size: 0.9rem;
+      color: rgba(255, 255, 255, 0.6);
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
+    }
+
+    /* Contact Section */
+    .contact {
+      text-align: center;
+      padding: 4rem 2rem;
+      animation: fadeInUp 1s ease-out 2.1s both;
+    }
+
+    .contact h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      color: #ffffff;
+    }
+
+    .contact p {
+      font-size: 1.1rem;
+      color: rgba(255, 255, 255, 0.7);
+      margin-bottom: 2rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      padding: 1rem 3rem;
+      background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+    }
+
+    .cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: rgba(255, 255, 255, 0.4);
+      font-size: 0.9rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      margin-top: 4rem;
+    }
+
+    /* Animations */
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 1.8rem;
+      }
+
+      .hero h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero p {
+        font-size: 1.1rem;
+      }
+
+      .dtd-section h2 {
+        font-size: 2rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Background Animation */
+    .bg-animation {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      opacity: 0.3;
+    }
+
+    .bg-animation::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 1px, transparent 1px);
+      background-size: 50px 50px;
+      animation: bgMove 20s linear infinite;
+    }
+
+    @keyframes bgMove {
+      0% {
+        transform: translate(0, 0);
+      }
+
+      100% {
+        transform: translate(50px, 50px);
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="bg-animation"></div>
+
+  <header>
+    <div class="logo">COREPACT AI</div>
+    <div class="tagline">Aligned by Design</div>
+    <div class="subtitle">The Future of Autonomous Consensus</div>
+  </header>
+
+  <div class="container">
+    <section class="hero">
+      <h1>Orchestrating the Future<br>of Intelligence</h1>
+      <p>
+        COREPACT AI Technologies LLC pioneers next-generation AI systems
+        through advanced consensus protocols and autonomous decision-making frameworks.
+      </p>
+    </section>
+
+    <div class="cards">
+      <div class="card">
+        <h3>APEX</h3>
+        <p>Advanced Protocol Execution - Orchestrating multi-agent systems with precision and reliability.</p>
+      </div>
+      <div class="card">
+        <h3>CORE-LAB</h3>
+        <p>Consensus Optimization Research - Pushing the boundaries of distributed intelligence.</p>
+      </div>
+      <div class="card">
+        <h3>CARO</h3>
+        <p>Consensus Architecture Research Operations - Building the foundation for autonomous systems.</p>
+      </div>
+      <div class="card">
+        <h3>DEV-CORE</h3>
+        <p>Development Core - Engineering robust solutions for complex AI challenges.</p>
+      </div>
+      <div class="card">
+        <h3>ROC</h3>
+        <p>Research Operations Center - Advancing the science of artificial intelligence.</p>
+      </div>
+    </div>
+
+    <section class="dtd-section">
+      <h2>DTD</h2>
+      <div class="subtitle-dtd">Dimension Token Division</div>
+      <p style="max-width: 800px; margin: 0 auto; color: rgba(255, 255, 255, 0.8); line-height: 1.8;">
+        Our breakthrough protocol for efficient multi-dimensional consensus,
+        reducing complexity while maintaining security and alignment.
+      </p>
+
+      <div class="dtd-metrics">
+        <div class="metric">
+          <div class="metric-value">166ms</div>
+          <div class="metric-label">Global Consensus Latency</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">4.0x</div>
+          <div class="metric-label">Token Optimization</div>
+        </div>
+        <div class="metric">
+          <div class="metric-value">O(L²/S)</div>
+          <div class="metric-label">Algorithmic Complexity</div>
+        </div>
+      </div>
+
+      <div style="margin-top: 3rem;">
+        <a href="/dtd" class="cta-button"
+          style="display: inline-block; padding: 1rem 3rem; background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%); color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);">Learn
+          More About DTD</a>
+      </div>
+    </section>
+
+    <section class="contact">
+      <h2>Get in Touch</h2>
+      <p>Interested in integrating DTD protocols or learning more about our technology?</p>
+      <a href="mailto:contact@corepact.ai" class="cta-button">Contact Us</a>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 COREPACT AI Technologies LLC. All rights reserved.</p>
+  </footer>
+</body>
+
 </html>

@@ -1,0 +1,17 @@
+{
+    "version": 2,
+    "routes": [
+        {
+            "src": "/dtd",
+            "dest": "/dtd/index.html"
+        },
+        {
+            "src": "/dtd/",
+            "dest": "/dtd/index.html"
+        },
+        {
+            "src": "/",
+            "dest": "/index.html"
+        }
+    ]
+}

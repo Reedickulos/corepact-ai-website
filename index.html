@@ -112,25 +112,23 @@
       height: 100vh;
       overflow: hidden;
       background: #000;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .video-wrapper {
-      position: relative;
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
     .video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: none;
-      object-fit: contain;
     }
 
     /* Static image that fades in at end of video */
@@ -140,7 +138,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-size: contain;
+      background-size: cover;
       background-position: center;
       background-repeat: no-repeat;
       background-color: #000;

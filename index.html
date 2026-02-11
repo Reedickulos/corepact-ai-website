@@ -6,6 +6,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>COREPACT AI Technologies LLC</title>
   <meta name="description" content="COREPACT AI Technologies LLC - Orchestrating the Future of Intelligence">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
   <style>
     * {
       margin: 0;
@@ -14,276 +17,285 @@
     }
 
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #000000;
       color: #ffffff;
       min-height: 100vh;
       overflow-x: hidden;
     }
 
-    .container {
-      max-width: 1200px;
+    /* Navigation */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      background: rgba(0, 0, 0, 0.95);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+      padding: 1.5rem 2rem;
+    }
+
+    .nav-container {
+      max-width: 1400px;
       margin: 0 auto;
-      padding: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
     }
 
-    /* Header */
-    header {
-      text-align: center;
-      padding: 4rem 2rem;
-      position: relative;
-    }
-
-    .logo {
-      font-size: 2.5rem;
+    .nav-logo {
+      font-size: 1.5rem;
       font-weight: 900;
-      letter-spacing: 0.2em;
+      letter-spacing: 0.15em;
       background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      margin-bottom: 1rem;
-      animation: fadeInDown 1s ease-out;
     }
 
-    .tagline {
-      font-size: 1.2rem;
-      color: #00d4ff;
-      letter-spacing: 0.3em;
+    .nav-links {
+      display: flex;
+      gap: 3rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: rgba(255, 255, 255, 0.7);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      font-weight: 300;
-      margin-bottom: 0.5rem;
-      animation: fadeInUp 1s ease-out 0.3s both;
-    }
-
-    .subtitle {
       font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.6);
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      animation: fadeInUp 1s ease-out 0.6s both;
-    }
-
-    /* Main Content */
-    .hero {
-      text-align: center;
-      padding: 6rem 2rem;
+      transition: all 0.3s ease;
       position: relative;
     }
 
-    .hero h1 {
-      font-size: 4rem;
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
+      transition: width 0.3s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #00d4ff;
+    }
+
+    .nav-links a:hover::after,
+    .nav-links a.active::after {
+      width: 100%;
+    }
+
+    /* Page Sections */
+    .page-section {
+      display: none;
+      min-height: 100vh;
+      padding-top: 80px;
+    }
+
+    .page-section.active {
+      display: block;
+    }
+
+    /* Video Container */
+    .video-container {
+      position: relative;
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .video-wrapper {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    .video-wrapper iframe {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 100vw;
+      height: 100vh;
+      object-fit: cover;
+    }
+
+    /* Ensure video fills screen without black bars */
+    @media (min-aspect-ratio: 16/9) {
+      .video-wrapper iframe {
+        width: 100vw;
+        height: 56.25vw;
+        /* 16:9 aspect ratio */
+      }
+    }
+
+    @media (max-aspect-ratio: 16/9) {
+      .video-wrapper iframe {
+        width: 177.78vh;
+        /* 16:9 aspect ratio */
+        height: 100vh;
+      }
+    }
+
+    /* Logo Overlay */
+    .logo-overlay {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+      text-align: center;
+      pointer-events: none;
+      opacity: 0;
+      animation: logoFadeIn 2s ease-out 1s forwards;
+    }
+
+    .logo-overlay img {
+      max-width: 400px;
+      width: 80vw;
+      height: auto;
+      filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.6));
+    }
+
+    @keyframes logoFadeIn {
+      from {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+      }
+
+      to {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    /* Contact Page */
+    .contact-page {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 100%);
+      padding: 6rem 2rem 4rem;
+    }
+
+    .contact-container {
+      max-width: 600px;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 2rem;
+      padding: 3rem;
+      backdrop-filter: blur(20px);
+      box-shadow: 0 20px 60px rgba(0, 212, 255, 0.1);
+    }
+
+    .contact-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .contact-header h1 {
+      font-size: 3rem;
       font-weight: 900;
-      margin-bottom: 2rem;
-      line-height: 1.2;
+      margin-bottom: 1rem;
       background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      animation: fadeInUp 1s ease-out 0.9s both;
-    }
-
-    .hero p {
-      font-size: 1.3rem;
-      color: rgba(255, 255, 255, 0.8);
-      max-width: 800px;
-      margin: 0 auto 3rem;
-      line-height: 1.8;
-      animation: fadeInUp 1s ease-out 1.2s both;
-    }
-
-    /* Cards Section */
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      padding: 4rem 0;
-      animation: fadeInUp 1s ease-out 1.5s both;
-    }
-
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      border-radius: 1rem;
-      padding: 2.5rem;
-      transition: all 0.3s ease;
-      backdrop-filter: blur(10px);
-    }
-
-    .card:hover {
-      transform: translateY(-10px);
-      border-color: rgba(0, 212, 255, 0.6);
-      box-shadow: 0 20px 40px rgba(0, 212, 255, 0.2);
-    }
-
-    .card h3 {
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-      color: #00d4ff;
       letter-spacing: 0.1em;
     }
 
-    .card p {
-      color: rgba(255, 255, 255, 0.7);
-      line-height: 1.6;
-      font-size: 1rem;
+    .contact-header p {
+      color: rgba(255, 255, 255, 0.6);
+      font-size: 1.1rem;
+      letter-spacing: 0.05em;
     }
 
-    /* DTD Section */
-    .dtd-section {
-      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1) 0%, rgba(0, 153, 255, 0.05) 100%);
-      border-radius: 2rem;
-      padding: 4rem 2rem;
-      margin: 4rem 0;
-      text-align: center;
-      border: 1px solid rgba(0, 212, 255, 0.2);
-      animation: fadeInUp 1s ease-out 1.8s both;
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
     }
 
-    .dtd-section h2 {
-      font-size: 3rem;
-      font-weight: 900;
-      margin-bottom: 1rem;
-      letter-spacing: 0.2em;
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .form-group label {
       color: #00d4ff;
-    }
-
-    .dtd-section .subtitle-dtd {
-      font-size: 1.2rem;
-      color: rgba(255, 255, 255, 0.8);
-      letter-spacing: 0.3em;
+      font-weight: 600;
+      letter-spacing: 0.1em;
       text-transform: uppercase;
-      margin-bottom: 2rem;
+      font-size: 0.85rem;
     }
 
-    .dtd-metrics {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      margin-top: 3rem;
-    }
-
-    .metric {
-      padding: 2rem;
-      background: rgba(0, 0, 0, 0.3);
-      border-radius: 1rem;
+    .form-group input,
+    .form-group textarea {
+      background: rgba(0, 0, 0, 0.4);
       border: 1px solid rgba(0, 212, 255, 0.2);
+      border-radius: 0.75rem;
+      padding: 1rem 1.25rem;
+      color: #ffffff;
+      font-family: 'Inter', sans-serif;
+      font-size: 1rem;
       transition: all 0.3s ease;
     }
 
-    .metric:hover {
+    .form-group input:focus,
+    .form-group textarea:focus {
+      outline: none;
       border-color: rgba(0, 212, 255, 0.6);
-      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+      background: rgba(0, 0, 0, 0.6);
     }
 
-    .metric-value {
-      font-size: 2.5rem;
-      font-weight: 900;
-      color: #00d4ff;
-      margin-bottom: 0.5rem;
+    .form-group textarea {
+      resize: vertical;
+      min-height: 150px;
     }
 
-    .metric-label {
-      font-size: 0.9rem;
-      color: rgba(255, 255, 255, 0.6);
-      text-transform: uppercase;
-      letter-spacing: 0.2em;
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: rgba(255, 255, 255, 0.3);
     }
 
-    /* Contact Section */
-    .contact {
-      text-align: center;
-      padding: 4rem 2rem;
-      animation: fadeInUp 1s ease-out 2.1s both;
-    }
-
-    .contact h2 {
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      color: #ffffff;
-    }
-
-    .contact p {
-      font-size: 1.1rem;
-      color: rgba(255, 255, 255, 0.7);
-      margin-bottom: 2rem;
-    }
-
-    .cta-button {
-      display: inline-block;
-      padding: 1rem 3rem;
+    .submit-button {
       background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%);
       color: #ffffff;
-      text-decoration: none;
+      border: none;
       border-radius: 50px;
+      padding: 1.25rem 2rem;
       font-weight: 700;
       letter-spacing: 0.2em;
       text-transform: uppercase;
+      font-size: 1rem;
+      cursor: pointer;
       transition: all 0.3s ease;
       box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);
+      margin-top: 1rem;
     }
 
-    .cta-button:hover {
+    .submit-button:hover {
       transform: translateY(-3px);
       box-shadow: 0 15px 40px rgba(0, 212, 255, 0.5);
     }
 
-    /* Footer */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      color: rgba(255, 255, 255, 0.4);
-      font-size: 0.9rem;
-      border-top: 1px solid rgba(255, 255, 255, 0.1);
-      margin-top: 4rem;
-    }
-
-    /* Animations */
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .logo {
-        font-size: 1.8rem;
-      }
-
-      .hero h1 {
-        font-size: 2.5rem;
-      }
-
-      .hero p {
-        font-size: 1.1rem;
-      }
-
-      .dtd-section h2 {
-        font-size: 2rem;
-      }
-
-      .cards {
-        grid-template-columns: 1fr;
-      }
+    .submit-button:active {
+      transform: translateY(-1px);
     }
 
     /* Background Animation */
@@ -294,7 +306,8 @@
       width: 100%;
       height: 100%;
       z-index: -1;
-      opacity: 0.3;
+      opacity: 0.2;
+      pointer-events: none;
     }
 
     .bg-animation::before {
@@ -318,90 +331,271 @@
         transform: translate(50px, 50px);
       }
     }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .nav-container {
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      .nav-links {
+        gap: 1.5rem;
+      }
+
+      .nav-links a {
+        font-size: 0.8rem;
+      }
+
+      .contact-header h1 {
+        font-size: 2rem;
+      }
+
+      .contact-container {
+        padding: 2rem;
+      }
+
+      .logo-overlay img {
+        max-width: 280px;
+      }
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      background: none;
+      border: none;
+      color: #00d4ff;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    @media (max-width: 640px) {
+      .mobile-menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.98);
+        flex-direction: column;
+        gap: 0;
+        padding: 1rem 0;
+        border-bottom: 1px solid rgba(0, 212, 255, 0.1);
+        display: none;
+      }
+
+      .nav-links.active {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 1rem 2rem;
+        width: 100%;
+      }
+    }
   </style>
 </head>
 
 <body>
   <div class="bg-animation"></div>
 
-  <header>
-    <div class="logo">COREPACT AI</div>
-    <div class="tagline">Aligned by Design</div>
-    <div class="subtitle">The Future of Autonomous Consensus</div>
-  </header>
+  <!-- Navigation -->
+  <nav>
+    <div class="nav-container">
+      <div class="nav-logo">COREPACT AI</div>
+      <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link active" onclick="showPage('home')">Home</a></li>
+        <li><a href="#dtd" class="nav-link" onclick="showPage('dtd')">DTD</a></li>
+        <li><a href="#contact" class="nav-link" onclick="showPage('contact')">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-  <div class="container">
-    <section class="hero">
-      <h1>Orchestrating the Future<br>of Intelligence</h1>
-      <p>
-        COREPACT AI Technologies LLC pioneers next-generation AI systems
-        through advanced consensus protocols and autonomous decision-making frameworks.
-      </p>
-    </section>
-
-    <div class="cards">
-      <div class="card">
-        <h3>APEX</h3>
-        <p>Advanced Protocol Execution - Orchestrating multi-agent systems with precision and reliability.</p>
+  <!-- Home Page -->
+  <section id="home" class="page-section active">
+    <div class="video-container">
+      <div class="video-wrapper">
+        <iframe src="https://streamable.com/e/9vy8os?autoplay=1&muted=1&nocontrols=1" frameborder="0"
+          allow="autoplay; fullscreen" allowfullscreen>
+        </iframe>
       </div>
-      <div class="card">
-        <h3>CORE-LAB</h3>
-        <p>Consensus Optimization Research - Pushing the boundaries of distributed intelligence.</p>
-      </div>
-      <div class="card">
-        <h3>CARO</h3>
-        <p>Consensus Architecture Research Operations - Building the foundation for autonomous systems.</p>
-      </div>
-      <div class="card">
-        <h3>DEV-CORE</h3>
-        <p>Development Core - Engineering robust solutions for complex AI challenges.</p>
-      </div>
-      <div class="card">
-        <h3>ROC</h3>
-        <p>Research Operations Center - Advancing the science of artificial intelligence.</p>
+      <div class="logo-overlay">
+        <img src="https://i.postimg.cc/L6cz1rNq/grok_image_e1bf531b_92bf_46c4_9095_ba13e58b3acd_(1).jpg"
+          alt="COREPACT AI Logo">
       </div>
     </div>
+  </section>
 
-    <section class="dtd-section">
-      <h2>DTD</h2>
-      <div class="subtitle-dtd">Dimension Token Division</div>
-      <p style="max-width: 800px; margin: 0 auto; color: rgba(255, 255, 255, 0.8); line-height: 1.8;">
-        Our breakthrough protocol for efficient multi-dimensional consensus,
-        reducing complexity while maintaining security and alignment.
-      </p>
-
-      <div class="dtd-metrics">
-        <div class="metric">
-          <div class="metric-value">166ms</div>
-          <div class="metric-label">Global Consensus Latency</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">4.0x</div>
-          <div class="metric-label">Token Optimization</div>
-        </div>
-        <div class="metric">
-          <div class="metric-value">O(L²/S)</div>
-          <div class="metric-label">Algorithmic Complexity</div>
-        </div>
+  <!-- DTD Page -->
+  <section id="dtd" class="page-section">
+    <div class="video-container">
+      <div class="video-wrapper">
+        <iframe src="https://streamable.com/e/px7b67?autoplay=1&muted=1&nocontrols=1" frameborder="0"
+          allow="autoplay; fullscreen" allowfullscreen>
+        </iframe>
       </div>
-
-      <div style="margin-top: 3rem;">
-        <a href="/dtd" class="cta-button"
-          style="display: inline-block; padding: 1rem 3rem; background: linear-gradient(135deg, #00d4ff 0%, #0099ff 100%); color: #ffffff; text-decoration: none; border-radius: 50px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(0, 212, 255, 0.3);">Learn
-          More About DTD</a>
+      <div class="logo-overlay">
+        <img src="https://i.postimg.cc/MGWd53jr/grok_image_01b6397d_89eb_416c_9426_3287fbce7df4_(1).jpg" alt="DTD Logo">
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="contact">
-      <h2>Get in Touch</h2>
-      <p>Interested in integrating DTD protocols or learning more about our technology?</p>
-      <a href="mailto:contact@corepact.ai" class="cta-button">Contact Us</a>
-    </section>
-  </div>
+  <!-- Contact Page -->
+  <section id="contact" class="page-section">
+    <div class="contact-page">
+      <div class="contact-container">
+        <div class="contact-header">
+          <h1>Get in Touch</h1>
+          <p>Let's discuss the future of AI together</p>
+        </div>
+        <form class="contact-form" id="contactForm" onsubmit="handleSubmit(event)">
+          <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567">
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Tell us about your project or inquiry..."
+              required></textarea>
+          </div>
+          <button type="submit" class="submit-button">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </section>
 
-  <footer>
-    <p>&copy; 2026 COREPACT AI Technologies LLC. All rights reserved.</p>
-  </footer>
+  <script>
+    // Page Navigation
+    function showPage(pageId) {
+      // Hide all pages
+      document.querySelectorAll('.page-section').forEach(section => {
+        section.classList.remove('active');
+      });
+
+      // Remove active class from all nav links
+      document.querySelectorAll('.nav-link').forEach(link => {
+        link.classList.remove('active');
+      });
+
+      // Show selected page
+      document.getElementById(pageId).classList.add('active');
+
+      // Add active class to clicked nav link
+      event.target.classList.add('active');
+
+      // Close mobile menu if open
+      document.getElementById('navLinks').classList.remove('active');
+
+      // Update URL hash without scrolling
+      history.pushState(null, null, `#${pageId}`);
+    }
+
+    // Mobile Menu Toggle
+    function toggleMobileMenu() {
+      document.getElementById('navLinks').classList.toggle('active');
+    }
+
+    // Handle form submission
+    function handleSubmit(event) {
+      event.preventDefault();
+
+      const name = document.getElementById('name').value;
+      const phone = document.getElementById('phone').value;
+      const email = document.getElementById('email').value;
+      const message = document.getElementById('message').value;
+
+      // Create email body
+      const subject = encodeURIComponent('Contact Form Submission - COREPACT AI');
+      const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Phone: ${phone}\n` +
+        `Email: ${email}\n\n` +
+        `Message:\n${message}`
+      );
+
+      // Open Outlook with pre-filled information
+      window.location.href = `mailto:contact@corepact.ai?subject=${subject}&body=${body}`;
+
+      // Optional: Reset form after submission
+      // document.getElementById('contactForm').reset();
+    }
+
+    // Auto-transition from Home to DTD after video ends
+    // Streamable videos are approximately 10 seconds, transition at 8 seconds
+    let homeVideoTimeout;
+
+    function setupAutoTransition() {
+      if (window.location.hash === '' || window.location.hash === '#home') {
+        homeVideoTimeout = setTimeout(() => {
+          // Only auto-transition if still on home page
+          if (document.getElementById('home').classList.contains('active')) {
+            document.getElementById('home').classList.remove('active');
+            document.getElementById('dtd').classList.add('active');
+
+            // Update nav
+            document.querySelectorAll('.nav-link').forEach(link => {
+              link.classList.remove('active');
+              if (link.getAttribute('href') === '#dtd') {
+                link.classList.add('active');
+              }
+            });
+
+            history.pushState(null, null, '#dtd');
+          }
+        }, 8000); // 8 seconds - adjust based on your video length
+      }
+    }
+
+    // Handle initial page load with hash
+    window.addEventListener('DOMContentLoaded', () => {
+      const hash = window.location.hash.substring(1);
+      if (hash && ['home', 'dtd', 'contact'].includes(hash)) {
+        showPage(hash);
+      } else {
+        setupAutoTransition();
+      }
+    });
+
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.substring(1) || 'home';
+      if (['home', 'dtd', 'contact'].includes(hash)) {
+        document.querySelectorAll('.page-section').forEach(section => {
+          section.classList.remove('active');
+        });
+        document.getElementById(hash).classList.add('active');
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${hash}`) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+
+    // Clear timeout when navigating away from home
+    document.querySelectorAll('.nav-link').forEach(link => {
+      link.addEventListener('click', () => {
+        if (homeVideoTimeout) {
+          clearTimeout(homeVideoTimeout);
+        }
+      });
+    });
+  </script>
 </body>
 
 </html>

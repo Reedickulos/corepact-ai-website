@@ -358,17 +358,18 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="#home" class="nav-link active" onclick="showPage('home')">Home</a></li>
         <li><a href="#dtd" class="nav-link" onclick="showPage('dtd')">DTD</a></li>
+        <li><a href="#laws" class="nav-link" onclick="showPage('laws')">LAWS</a></li>
         <li><a href="#contact" class="nav-link" onclick="showPage('contact')">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- Home Page -->
+  <!-- Home Page - COREPACT -->
   <section id="home" class="page-section active">
     <div class="video-container">
       <div class="video-wrapper">
-        <iframe id="homeVideo" allow="fullscreen;autoplay" allowfullscreen height="2160"
-          src="https://streamable.com/e/9vy8os?autoplay=1&muted=1&nocontrols=1" width="3840" style="border:none;">
+        <iframe id="homeVideo" src="https://jumpshare.com/embed/J4A0InG3YSPEf5NZ2Sgo" frameborder="0"
+          webkitallowfullscreen mozallowfullscreen allowfullscreen>
         </iframe>
       </div>
     </div>
@@ -378,8 +379,19 @@
   <section id="dtd" class="page-section">
     <div class="video-container">
       <div class="video-wrapper">
-        <iframe id="dtdVideo" allow="fullscreen;autoplay" allowfullscreen height="2160"
-          src="https://streamable.com/e/px7b67?autoplay=1&muted=1&nocontrols=1" width="3840" style="border:none;">
+        <iframe id="dtdVideo" src="https://jumpshare.com/embed/6kdmgH41Rx2mSanwheTo" frameborder="0"
+          webkitallowfullscreen mozallowfullscreen allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+  </section>
+
+  <!-- LAWS Page -->
+  <section id="laws" class="page-section">
+    <div class="video-container">
+      <div class="video-wrapper">
+        <iframe id="lawsVideo" src="https://jumpshare.com/embed/5wBPkIRHXsADXQA9TQ3r" frameborder="0"
+          webkitallowfullscreen mozallowfullscreen allowfullscreen>
         </iframe>
       </div>
     </div>
@@ -418,16 +430,8 @@
   </section>
 
   <script>
-    // Video timing configuration (in milliseconds)
-    const HOME_VIDEO_DURATION = 10000; // 10 seconds - adjust based on your actual video length
-
-    let homeVideoTimeout;
-
     // Page Navigation
     function showPage(pageId) {
-      // Clear any existing timeouts
-      clearTimeout(homeVideoTimeout);
-
       // Hide all pages
       document.querySelectorAll('.page-section').forEach(section => {
         section.classList.remove('active');
@@ -449,32 +453,6 @@
 
       // Update URL hash without scrolling
       history.pushState(null, null, `#${pageId}`);
-
-      // Setup auto-transition if on home page
-      if (pageId === 'home') {
-        setupHomeVideoTimings();
-      }
-    }
-
-    // Setup Home video timings
-    function setupHomeVideoTimings() {
-      // Auto-transition to DTD page after video plays
-      homeVideoTimeout = setTimeout(() => {
-        if (document.getElementById('home').classList.contains('active')) {
-          document.getElementById('home').classList.remove('active');
-          document.getElementById('dtd').classList.add('active');
-
-          // Update nav
-          document.querySelectorAll('.nav-link').forEach(link => {
-            link.classList.remove('active');
-            if (link.getAttribute('href') === '#dtd') {
-              link.classList.add('active');
-            }
-          });
-
-          history.pushState(null, null, '#dtd');
-        }
-      }, HOME_VIDEO_DURATION);
     }
 
     // Mobile Menu Toggle
@@ -507,35 +485,7 @@
     // Handle initial page load with hash
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.substring(1);
-      if (hash && ['home', 'dtd', 'contact'].includes(hash)) {
-        // Manually trigger showPage without event
-        const pageId = hash;
-        document.querySelectorAll('.page-section').forEach(section => {
-          section.classList.remove('active');
-        });
-        document.getElementById(pageId).classList.add('active');
-
-        document.querySelectorAll('.nav-link').forEach(link => {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === `#${pageId}`) {
-            link.classList.add('active');
-          }
-        });
-
-        if (pageId === 'home') {
-          setupHomeVideoTimings();
-        }
-      } else {
-        setupHomeVideoTimings();
-      }
-    });
-
-    // Handle browser back/forward buttons
-    window.addEventListener('popstate', () => {
-      const hash = window.location.hash.substring(1) || 'home';
-      if (['home', 'dtd', 'contact'].includes(hash)) {
-        clearTimeout(homeVideoTimeout);
-
+      if (hash && ['home', 'dtd', 'laws', 'contact'].includes(hash)) {
         document.querySelectorAll('.page-section').forEach(section => {
           section.classList.remove('active');
         });
@@ -547,10 +497,24 @@
             link.classList.add('active');
           }
         });
+      }
+    });
 
-        if (hash === 'home') {
-          setupHomeVideoTimings();
-        }
+    // Handle browser back/forward buttons
+    window.addEventListener('popstate', () => {
+      const hash = window.location.hash.substring(1) || 'home';
+      if (['home', 'dtd', 'laws', 'contact'].includes(hash)) {
+        document.querySelectorAll('.page-section').forEach(section => {
+          section.classList.remove('active');
+        });
+        document.getElementById(hash).classList.add('active');
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${hash}`) {
+            link.classList.add('active');
+          }
+        });
       }
     });
   </script>

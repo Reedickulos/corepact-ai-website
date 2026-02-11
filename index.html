@@ -97,7 +97,6 @@
     .page-section {
       display: none;
       min-height: 100vh;
-      padding-top: 80px;
     }
 
     .page-section.active {
@@ -106,78 +105,52 @@
 
     /* Video Container */
     .video-container {
-      position: relative;
-      width: 100%;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
       height: 100vh;
       overflow: hidden;
       background: #000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .video-wrapper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .video-wrapper iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+      object-fit: contain;
+    }
+
+    /* Static image that fades in at end of video */
+    .video-end-image {
       position: absolute;
       top: 0;
       left: 0;
       width: 100%;
       height: 100%;
-    }
-
-    .video-wrapper iframe {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 100vw;
-      height: 100vh;
-      object-fit: cover;
-    }
-
-    /* Ensure video fills screen without black bars */
-    @media (min-aspect-ratio: 16/9) {
-      .video-wrapper iframe {
-        width: 100vw;
-        height: 56.25vw;
-        /* 16:9 aspect ratio */
-      }
-    }
-
-    @media (max-aspect-ratio: 16/9) {
-      .video-wrapper iframe {
-        width: 177.78vh;
-        /* 16:9 aspect ratio */
-        height: 100vh;
-      }
-    }
-
-    /* Logo Overlay */
-    .logo-overlay {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 10;
-      text-align: center;
-      pointer-events: none;
+      background-size: contain;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-color: #000;
       opacity: 0;
-      animation: logoFadeIn 2s ease-out 1s forwards;
+      transition: opacity 1.5s ease-in-out;
+      pointer-events: none;
     }
 
-    .logo-overlay img {
-      max-width: 400px;
-      width: 80vw;
-      height: auto;
-      filter: drop-shadow(0 0 40px rgba(0, 212, 255, 0.6));
-    }
-
-    @keyframes logoFadeIn {
-      from {
-        opacity: 0;
-        transform: translate(-50%, -50%) scale(0.8);
-      }
-
-      to {
-        opacity: 1;
-        transform: translate(-50%, -50%) scale(1);
-      }
+    .video-end-image.show {
+      opacity: 1;
     }
 
     /* Contact Page */
@@ -354,10 +327,6 @@
       .contact-container {
         padding: 2rem;
       }
-
-      .logo-overlay img {
-        max-width: 280px;
-      }
     }
 
     /* Mobile Menu Toggle */
@@ -420,13 +389,12 @@
   <section id="home" class="page-section active">
     <div class="video-container">
       <div class="video-wrapper">
-        <iframe src="https://streamable.com/e/9vy8os?autoplay=1&muted=1&nocontrols=1" frameborder="0"
-          allow="autoplay; fullscreen" allowfullscreen>
+        <iframe id="homeVideo" allow="fullscreen;autoplay" allowfullscreen height="2160"
+          src="https://streamable.com/e/9vy8os?autoplay=1&muted=1&nocontrols=1" width="3840" style="border:none;">
         </iframe>
-      </div>
-      <div class="logo-overlay">
-        <img src="https://i.postimg.cc/L6cz1rNq/grok_image_e1bf531b_92bf_46c4_9095_ba13e58b3acd_(1).jpg"
-          alt="COREPACT AI Logo">
+        <div class="video-end-image" id="homeEndImage"
+          style="background-image: url('https://i.postimg.cc/L6cz1rNq/grok_image_e1bf531b_92bf_46c4_9095_ba13e58b3acd_(1).jpg');">
+        </div>
       </div>
     </div>
   </section>
@@ -435,12 +403,12 @@
   <section id="dtd" class="page-section">
     <div class="video-container">
       <div class="video-wrapper">
-        <iframe src="https://streamable.com/e/px7b67?autoplay=1&muted=1&nocontrols=1" frameborder="0"
-          allow="autoplay; fullscreen" allowfullscreen>
+        <iframe id="dtdVideo" allow="fullscreen;autoplay" allowfullscreen height="2160"
+          src="https://streamable.com/e/px7b67?autoplay=1&muted=1&nocontrols=1" width="3840" style="border:none;">
         </iframe>
-      </div>
-      <div class="logo-overlay">
-        <img src="https://i.postimg.cc/MGWd53jr/grok_image_01b6397d_89eb_416c_9426_3287fbce7df4_(1).jpg" alt="DTD Logo">
+        <div class="video-end-image" id="dtdEndImage"
+          style="background-image: url('https://i.postimg.cc/MGWd53jr/grok_image_01b6397d_89eb_416c_9426_3287fbce7df4_(1).jpg');">
+        </div>
       </div>
     </div>
   </section>
@@ -478,8 +446,23 @@
   </section>
 
   <script>
+    // Video timing configuration (in milliseconds)
+    const HOME_VIDEO_DURATION = 10000; // 10 seconds
+    const DTD_VIDEO_DURATION = 10000;  // 10 seconds
+    const FADE_START_OFFSET = 2000;    // Start fade 2 seconds before end
+    const TRANSITION_DELAY = 2000;     // Wait 2 seconds on static image before transitioning
+
+    let homeVideoTimeout;
+    let homeFadeTimeout;
+    let dtdFadeTimeout;
+
     // Page Navigation
     function showPage(pageId) {
+      // Clear any existing timeouts
+      clearTimeout(homeVideoTimeout);
+      clearTimeout(homeFadeTimeout);
+      clearTimeout(dtdFadeTimeout);
+
       // Hide all pages
       document.querySelectorAll('.page-section').forEach(section => {
         section.classList.remove('active');
@@ -501,6 +484,53 @@
 
       // Update URL hash without scrolling
       history.pushState(null, null, `#${pageId}`);
+
+      // Reset video end images
+      document.querySelectorAll('.video-end-image').forEach(img => {
+        img.classList.remove('show');
+      });
+
+      // Setup video timings for the new page
+      if (pageId === 'home') {
+        setupHomeVideoTimings();
+      } else if (pageId === 'dtd') {
+        setupDtdVideoTimings();
+      }
+    }
+
+    // Setup Home video timings
+    function setupHomeVideoTimings() {
+      // Fade in static image near end of video
+      homeFadeTimeout = setTimeout(() => {
+        document.getElementById('homeEndImage').classList.add('show');
+      }, HOME_VIDEO_DURATION - FADE_START_OFFSET);
+
+      // Auto-transition to DTD page
+      homeVideoTimeout = setTimeout(() => {
+        if (document.getElementById('home').classList.contains('active')) {
+          document.getElementById('home').classList.remove('active');
+          document.getElementById('dtd').classList.add('active');
+
+          // Update nav
+          document.querySelectorAll('.nav-link').forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === '#dtd') {
+              link.classList.add('active');
+            }
+          });
+
+          history.pushState(null, null, '#dtd');
+          setupDtdVideoTimings();
+        }
+      }, HOME_VIDEO_DURATION + TRANSITION_DELAY);
+    }
+
+    // Setup DTD video timings
+    function setupDtdVideoTimings() {
+      // Fade in static image near end of video
+      dtdFadeTimeout = setTimeout(() => {
+        document.getElementById('dtdEndImage').classList.add('show');
+      }, DTD_VIDEO_DURATION - FADE_START_OFFSET);
     }
 
     // Mobile Menu Toggle
@@ -528,44 +558,33 @@
 
       // Open Outlook with pre-filled information
       window.location.href = `mailto:info@corepactai.com?subject=${subject}&body=${body}`;
-
-      // Optional: Reset form after submission
-      // document.getElementById('contactForm').reset();
-    }
-
-    // Auto-transition from Home to DTD after video ends
-    // Streamable videos are approximately 10 seconds, transition at 8 seconds
-    let homeVideoTimeout;
-
-    function setupAutoTransition() {
-      if (window.location.hash === '' || window.location.hash === '#home') {
-        homeVideoTimeout = setTimeout(() => {
-          // Only auto-transition if still on home page
-          if (document.getElementById('home').classList.contains('active')) {
-            document.getElementById('home').classList.remove('active');
-            document.getElementById('dtd').classList.add('active');
-
-            // Update nav
-            document.querySelectorAll('.nav-link').forEach(link => {
-              link.classList.remove('active');
-              if (link.getAttribute('href') === '#dtd') {
-                link.classList.add('active');
-              }
-            });
-
-            history.pushState(null, null, '#dtd');
-          }
-        }, 8000); // 8 seconds - adjust based on your video length
-      }
     }
 
     // Handle initial page load with hash
     window.addEventListener('DOMContentLoaded', () => {
       const hash = window.location.hash.substring(1);
       if (hash && ['home', 'dtd', 'contact'].includes(hash)) {
-        showPage(hash);
+        // Manually trigger showPage without event
+        const pageId = hash;
+        document.querySelectorAll('.page-section').forEach(section => {
+          section.classList.remove('active');
+        });
+        document.getElementById(pageId).classList.add('active');
+
+        document.querySelectorAll('.nav-link').forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === `#${pageId}`) {
+            link.classList.add('active');
+          }
+        });
+
+        if (pageId === 'home') {
+          setupHomeVideoTimings();
+        } else if (pageId === 'dtd') {
+          setupDtdVideoTimings();
+        }
       } else {
-        setupAutoTransition();
+        setupHomeVideoTimings();
       }
     });
 
@@ -573,6 +592,10 @@
     window.addEventListener('popstate', () => {
       const hash = window.location.hash.substring(1) || 'home';
       if (['home', 'dtd', 'contact'].includes(hash)) {
+        clearTimeout(homeVideoTimeout);
+        clearTimeout(homeFadeTimeout);
+        clearTimeout(dtdFadeTimeout);
+
         document.querySelectorAll('.page-section').forEach(section => {
           section.classList.remove('active');
         });
@@ -584,16 +607,18 @@
             link.classList.add('active');
           }
         });
-      }
-    });
 
-    // Clear timeout when navigating away from home
-    document.querySelectorAll('.nav-link').forEach(link => {
-      link.addEventListener('click', () => {
-        if (homeVideoTimeout) {
-          clearTimeout(homeVideoTimeout);
+        // Reset video end images
+        document.querySelectorAll('.video-end-image').forEach(img => {
+          img.classList.remove('show');
+        });
+
+        if (hash === 'home') {
+          setupHomeVideoTimings();
+        } else if (hash === 'dtd') {
+          setupDtdVideoTimings();
         }
-      });
+      }
     });
   </script>
 </body>
